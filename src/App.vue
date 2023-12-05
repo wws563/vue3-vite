@@ -12,9 +12,13 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <div class="testscss">
+    test
+    <p>red</p>
+  </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -26,5 +30,9 @@ import HelloWorld from './components/HelloWorld.vue'
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+.testscss{
+  color: black;
+  p{color:red}
 }
 </style>
