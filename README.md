@@ -1,41 +1,102 @@
 # 安装
+
 `npm install`
 
 # 启动
+
 `npm run dev`
 
 # 环境准备
+
 1. [CSS 预处理器 - sass和scss](https://cn.vitejs.dev/guide/features.html#css-pre-processors)
 
-`# .scss and .sass
-npm add -D sass`
+```bash
+# .scss and .sass
+npm add -D sass
+```
 
 2. 代码风格统一
 
-需要用到eslint和prettier，husky。eslint是代码检查，prettier是代码格式化，husky是提交代码检查。
+需要用到eslint和prettier，husky。eslint是代码错误检查，静态检查代码错误，prettier是代码格式化，保证代码样式风格统一。husky是提交代码检查，保证提交进入项目的代码一致。
 三者一起使用，可以保证项目的风格统一，提高可读性和可维护性。
 
 - 安装prettier
-`npm install --save-dev prettier`
 
-- 配置prettier
+```bas
+npm install --save-dev prettier
+```
+
+插件中心搜索prettier并安装插件。
+
 可以直接在package.json中配置prettier，也可以单独创建一个配置文件.prettierrc.js。我就直接在package.json中配置了。避免了文件类型导致可能存在的问题。
 
-`{
+```json
+// package.json
+{
   "name": "my-vue3-vite",
   // ...
   "devDependencies": {
-		// ...
-    "prettier": "3.1.0",
+    // ...
+    "prettier": "3.1.0"
   },
-	// ...
+  // ...
   "prettier": {
     // 可以在这里设置prettier
   }
-}`
+}
+```
+
+踩坑：prettier设置中读取配置文件，地址配置了.prettierrc.js，没有该文件时报错。但我用不到，需要去除。
+
+- 安装eslint
+
+```bash
+npm install --save-dev eslint
+```
+
+插件中心安装搜索并安装eslint
+
+```bash
+// 初始化eslint，可以根据项目进行配置，比如是否支持vue是否支持ts等，会根据设置生成配置，安装插件。
+npx eslint  --init
+```
+
+然后安装prettier和eslint相关包.
+
+```bash
+# eslint-config-prettier https://github.com/prettier/eslint-config-prettier/
+# Turns off all rules that are unnecessary or might conflict with Prettier.（关闭eslint和prettier冲突的规则）
+# eslint-plugin-prettier https://www.npmjs.com/package/eslint-plugin-prettier
+# Runs Prettier as an ESLint rule and reports differences as individual ESLint issues.（有冲突的情况下，会优先使用prettier的设置，避免两个插件打架）
 
 
+npm i eslint-config-prettier eslint-plugin-prettier -D
+```
 
+根据我的项目，我这边最终安装的包如下。
 
+```json
+"devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "eslint-plugin-vue": "^9.19.2",
+  }
+```
 
-[vite+ts+vue结合eslint、prettier、husky、lint-staged、commitlint搭建开发环境](https://juejin.cn/post/7258140838138511421)
+创建`.eslintignore`文件，避免某些文件被eslint检查。
+
+修改`App.vue`文件，eslint正常报错。安装成功。
+
+- 安装husky
+
+```bash
+npm install --save-dev husky
+```
+
+> 参考
+>
+> - [vite+ts+vue结合eslint、prettier、husky、lint-staged、commitlint搭建开发环境](https://juejin.cn/post/7258140838138511421)
+> - [详细说明使用husky规范前端项目搭建](https://blog.csdn.net/du_aitiantian/article/details/130326158)
+> - [全面搞懂ESLint与Prettier](https://blog.csdn.net/jayccx/article/details/128851057)
+> - [eslint官网配置](https://zh-hans.eslint.org/docs/latest/use/getting-started#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85)
