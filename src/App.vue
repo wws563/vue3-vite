@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+const a = "33";
 </script>
 
 <template>
@@ -31,8 +32,10 @@ import HelloWorld from './components/HelloWorld.vue'
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
-.testscss{
+.testscss {
   color: black;
-  p{color:red}
+  p {
+    color: red;
+  }
 }
 </style>
