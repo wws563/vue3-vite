@@ -113,6 +113,45 @@ npm run prepare
 npx husky add .husky/pre-commit "npm run lint:lint-staged"
 ```
 
+然后再packege.json中添加lint-staged指令与配置
+
+```json
+// packege.json
+"scripts": {
+  // other scripts
+    "lint:lint-staged": "lint-staged"
+  },
+"lint-staged": {
+  "*.{js,ts}": [
+    "eslint --fix", // --fix-dry-run代表出现错误时，尝试修复但不保存
+    "prettier --write" // 执行prettier格式化文档
+  ],
+  "*.{cjs,json}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+  "*.{vue,html}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+  "*.{scss,css}": [
+    "prettier --write"
+  ],
+  "*.md": [
+    "prettier"
+  ]
+}
+
+```
+
+此时，有问题的文件在commit时就会报错，并在提示错误的文件和位置，eslint和prettier会自动格式化文档，并修复eslint错误。
+事例：
+
+```
+  3:5  error  'a' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  3:9  error  Replace `'test'` with `"test";`         prettier/prettier
+```
+
 新增lint-staged.config.cjs 文件：（根据具体需求具体配置）
 
 > 参考
@@ -121,3 +160,16 @@ npx husky add .husky/pre-commit "npm run lint:lint-staged"
 > - [详细说明使用husky规范前端项目搭建](https://blog.csdn.net/du_aitiantian/article/details/130326158)
 > - [全面搞懂ESLint与Prettier](https://blog.csdn.net/jayccx/article/details/128851057)
 > - [eslint官网配置](https://zh-hans.eslint.org/docs/latest/use/getting-started#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85)
+
+# 踩坑：
+
+1. 试用husky执行指令时，换行报错出现`Delete ␍`
+
+- 出现原因：prettier默认使用lf作为换行符，而windows使用crlf作为换行符，于是报错。
+- 解决方法：
+
+```bash
+git config --global core.autocrlf false
+```
+
+- 参考：https://blog.csdn.net/yiguoxiaohai/article/details/128119129
