@@ -69,8 +69,16 @@ npx eslint  --init
 # eslint-plugin-prettier https://www.npmjs.com/package/eslint-plugin-prettier
 # Runs Prettier as an ESLint rule and reports differences as individual ESLint issues.（有冲突的情况下，会优先使用prettier的设置，避免两个插件打架）
 
-
 npm i eslint-config-prettier eslint-plugin-prettier -D
+```
+
+安装完成后`.eslintrc`中添加设置
+
+```json
+"plugins": ["prettier"],
+"rules": {
+  "prettier/prettier": "error"
+}
 ```
 
 根据我的项目，我这边最终安装的包如下。
@@ -81,18 +89,31 @@ npm i eslint-config-prettier eslint-plugin-prettier -D
     "@typescript-eslint/parser": "^6.13.2",
     "eslint": "^8.55.0",
     "eslint-plugin-vue": "^9.19.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
   }
 ```
 
 创建`.eslintignore`文件，避免某些文件被eslint检查。
 
-修改`App.vue`文件，eslint正常报错。安装成功。
+修改`App.vue`文件，eslint正常报错，安装成功。调整prettier规则，eslint根据prettier规则报错，格式化文件可以通过prettier进行格式。
 
 - 安装husky
 
 ```bash
 npm install --save-dev husky
+npm set-script prepare "husky install"
+npm run prepare
+#在这之后会生成一个husky文件夹
 ```
+
+- husky辅助工具lint-staged，避免扫描整个项目出现意外报错和过长的扫描时间
+
+```bash
+npx husky add .husky/pre-commit "npm run lint:lint-staged"
+```
+
+新增lint-staged.config.cjs 文件：（根据具体需求具体配置）
 
 > 参考
 >
