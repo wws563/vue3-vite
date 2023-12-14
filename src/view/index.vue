@@ -4,36 +4,30 @@
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <div class="testscss">
-    test222
-    <p>red</p>
+    <div class="header">hahaha</div>
+    <div class="left">wx专属</div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.header {
+  width: 100%;
+  height: 100vh;
+
+  @include respond-to(phone) {
+    height: 100px;
+  }
+
+  @include respond-to(pc) {
+    height: 200px;
+  }
+
+  background-color: rgb(139 133 133);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-.testscss {
-  color: black;
-  p {
-    color: red;
+
+.left {
+  @include respond-to(pc) {
+    display: none;
   }
 }
 </style>

@@ -1,0 +1,41 @@
+/* 定义断点对象 */
+$breakpoints: (
+  phone: (
+    320px,
+    480px,
+  ),
+  pad: (
+    481px,
+    768px,
+  ),
+  pc: (
+    769px,
+    1280px,
+  ),
+  // desktop: (1025px,1280px),
+  // tv: 1281px
+);
+
+@mixin respond-to($breakname) {
+  /* 1. 读取断点对象属性值 */
+  $bp: map-get($breakpoints, $breakname);
+
+  /* 2. 类型判断是否为数组 */
+  @if type-of($bp) == "list" {
+    /* 3. 取出数组中的数据 */
+    $min: nth($bp, 1);
+    $max: nth($bp, 2);
+
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+
+    /* 4. tv 大屏 */
+  } @else if type-of($bp) == "number" {
+    @media screen and (min-width: $bp) {
+      @content;
+    }
+  } @else {
+    @warn "`$breakname` is not a valid breakpoint name.";
+  }
+}
