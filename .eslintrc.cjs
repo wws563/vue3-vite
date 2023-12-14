@@ -28,5 +28,7 @@ module.exports = {
   plugins: ["@typescript-eslint", "vue", "prettier"],
   rules: {
     "prettier/prettier": "error",
+    "vue/multi-word-component-names": "off", // vue支持单word文件
+    "@typescript-eslint/no-explicit-any": "off", // 关闭强any判定
   },
 };

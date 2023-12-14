@@ -15,7 +15,14 @@
 npm add -D sass
 ```
 
-2. 代码风格统一
+2. 路由
+
+```bash
+# 安装vue-router
+npm install vue-router -d--save
+```
+
+3. 代码风格统一
 
 需要用到eslint和prettier，husky。eslint是代码错误检查，静态检查代码错误，prettier是代码格式化，保证代码样式风格统一。husky是提交代码检查，保证提交进入项目的代码一致。
 三者一起使用，可以保证项目的风格统一，提高可读性和可维护性。
@@ -124,35 +131,37 @@ npx husky add .husky/pre-commit "npm run lint:lint-staged"
 "lint-staged": {
   "*.{js,ts}": [
     "eslint --fix", // --fix-dry-run代表出现错误时，尝试修复但不保存
-    "prettier --write" // 执行prettier格式化文档
+    "npx prettier --write" // 执行prettier格式化文档
   ],
   "*.{cjs,json}": [
     "eslint --fix",
-    "prettier --write"
+    "npx prettier --write"
   ],
   "*.{vue,html}": [
     "eslint --fix",
-    "prettier --write"
+    "npx prettier --write"
   ],
   "*.{scss,css}": [
-    "prettier --write"
+    "npx prettier --write"
   ],
   "*.md": [
-    "prettier"
+    "npx prettier"
   ]
 }
 
 ```
 
 此时，有问题的文件在commit时就会报错，并在提示错误的文件和位置，eslint和prettier会自动格式化文档，并修复eslint错误。
-事例：
+比如我定义了一个未被使用的变量a，提交commit，控制台会报错并中断提交：
 
 ```
   3:5  error  'a' is assigned a value but never used  @typescript-eslint/no-unused-vars
-  3:9  error  Replace `'test'` with `"test";`         prettier/prettier
 ```
 
-新增lint-staged.config.cjs 文件：（根据具体需求具体配置）
+修改完成后，可以提交，同时prettier会自动格式化文档为指定的格式。
+
+- 可优化空间
+  - 安装commitlint，规范提交信息
 
 > 参考
 >
