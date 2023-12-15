@@ -16,8 +16,8 @@
 
 <script setup lang="ts">
 const theme = ref(false);
-const onThemeChange = (e) => {
-  document.querySelector("html").setAttribute("theme", e ? "dark" : "light");
+const onThemeChange = (e: boolean) => {
+  document.querySelector('html')!.setAttribute('theme', e ? 'dark' : 'light');
 };
 </script>
 
@@ -38,8 +38,8 @@ const onThemeChange = (e) => {
   }
   .title {
     font-size: 40px;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
   }
 }
 

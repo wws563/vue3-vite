@@ -1,16 +1,17 @@
 <template>
   <div class="footer">
-    {{ tick.date.format("YYYY-MM-DD HH:mm:ss") }}
+    {{ tick.date.format('YYYY-MM-DD HH:mm:ss') }}
   </div>
 </template>
 
 <script setup lang="ts">
-const { $dayjs } = getCurrentInstance().appContext.config.globalProperties;
+// const { $dayjs } = getCurrentInstance().appContext.config.globalProperties;
+const { $dayjs }: any = getCurrentInstance();
 let tick = reactive({ date: $dayjs() });
 
 function updateDate() {
   setTimeout(() => {
-    tick.date = tick.date.add(1, "s");
+    tick.date = tick.date.add(1, 's');
     updateDate();
   }, 1000);
 }

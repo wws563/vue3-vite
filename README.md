@@ -32,6 +32,12 @@ npm install vue-router -d--save
 
 1. (安装unplugin-auto-import自动导入vue常用功能)[https://blog.csdn.net/hbiao68/article/details/131213399]
 
+```ts
+// import {ref} from 'vue';
+// 安装unplugin-auto-import后上面这句就不用了，可以直接使用ref，reactive等等，设置中包含了vue，vue-router和pinia
+const theme = ref(false);
+```
+
 2.
 
 # 代码质量
