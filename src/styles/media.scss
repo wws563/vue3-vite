@@ -8,10 +8,7 @@ $breakpoints: (
     481px,
     768px,
   ),
-  pc: (
-    769px,
-    1280px,
-  ),
+  pc: 768px,
   // desktop: (1025px,1280px),
   // tv: 1281px
 );
@@ -21,7 +18,7 @@ $breakpoints: (
   $bp: map-get($breakpoints, $breakname);
 
   /* 2. 类型判断是否为数组 */
-  @if type-of($bp) == "list" {
+  @if type-of($bp) == 'list' {
     /* 3. 取出数组中的数据 */
     $min: nth($bp, 1);
     $max: nth($bp, 2);
@@ -31,7 +28,7 @@ $breakpoints: (
     }
 
     /* 4. tv 大屏 */
-  } @else if type-of($bp) == "number" {
+  } @else if type-of($bp) == 'number' {
     @media screen and (min-width: $bp) {
       @content;
     }

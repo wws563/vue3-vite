@@ -1,3 +1,8 @@
+# 介绍
+
+vite + vue3 + ts + pinia + vue-router + scss
+完善，方便，快捷，现代化的前端开发环境。
+
 # 安装
 
 `npm install`

@@ -1,11 +1,14 @@
 <template>
   <div>
-    <div class="header">hahaha</div>
     <div class="left">wx专属</div>
+    <div class="content">
+      <lottory-picker></lottory-picker>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import lottoryPicker from '@/components/toy/lottoryPicker.vue';
 // DEMO:使用pinia
 import { useStore } from '@/store/main.ts';
 const store = useStore();
