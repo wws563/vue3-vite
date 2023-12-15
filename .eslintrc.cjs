@@ -30,5 +30,6 @@ module.exports = {
     "prettier/prettier": "error",
     "vue/multi-word-component-names": "off", // vue支持单word文件
     "@typescript-eslint/no-explicit-any": "off", // 关闭强any判定
+    "no-undef": "off", // unplugin-auto-import/vite插件需要关闭
   },
 };

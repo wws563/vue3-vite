@@ -4,9 +4,13 @@
 
 # 启动
 
-`npm run dev`
+```bash
+# node版本要求18+
+npm install
+npm run dev
+```
 
-# 环境准备
+# 基本框架准备scss + router + pinia
 
 1. [CSS 预处理器 - sass和scss](https://cn.vitejs.dev/guide/features.html#css-pre-processors)
 
@@ -15,14 +19,24 @@
 npm add -D sass
 ```
 
-2. 路由
+2. 路由vue-router
 
 ```bash
 # 安装vue-router
 npm install vue-router -d--save
 ```
 
-3. 代码风格统一
+配置路由，省略1000字
+
+# 效率提高
+
+1. (安装unplugin-auto-import自动导入vue常用功能)[https://blog.csdn.net/hbiao68/article/details/131213399]
+
+2.
+
+# 代码质量
+
+1. 代码风格统一
 
 需要用到eslint和prettier，husky。eslint是代码错误检查，静态检查代码错误，prettier是代码格式化，保证代码样式风格统一。husky是提交代码检查，保证提交进入项目的代码一致。
 三者一起使用，可以保证项目的风格统一，提高可读性和可维护性。
