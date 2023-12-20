@@ -1,6 +1,6 @@
 const routes = [
-  { path: "/", redirect: "/home" },
-  { path: "/home", name: "首页", component: () => import("@/view/index.vue") },
+  { path: '/', redirect: '/home' },
+  { path: '/home', name: '首页', component: () => import('@/view/index.vue') },
   // { path: '/projectSetting',
   //   name:'配置',
   //   component: ()=>import('@/components/layout/routerMiddle.vue'),
@@ -67,6 +67,18 @@ const routes = [
   //       component: () => import("@/view/demo/routeRobot.vue"),
   //     },
   //   ],
+  {
+    path: '/toy',
+    name: '玩具',
+    component: () => import('@/components/layout/pc/routerMiddle.vue'),
+    children: [
+      {
+        path: 'lotterySpinner',
+        name: '圆盘抽奖',
+        component: () => import('@/view/toy/lotterySpinnerPage.vue'),
+      },
+    ],
+  },
   // },
 ];
 

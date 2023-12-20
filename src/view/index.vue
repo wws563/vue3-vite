@@ -1,14 +1,11 @@
 <template>
   <div>
     <div class="left">wx专属</div>
-    <div class="content">
-      <lottory-picker></lottory-picker>
-    </div>
+    <!-- <button @click="jump">圆盘</button> -->
   </div>
 </template>
 
 <script setup lang="ts">
-import lottoryPicker from '@/components/toy/lottoryPicker.vue';
 // DEMO:使用pinia
 import { useStore } from '@/store/main.ts';
 const store = useStore();
@@ -18,8 +15,8 @@ console.log(name);
 
 <style scoped lang="scss">
 .header {
-  width: 100%;
   height: 100vh;
+  width: 100%;
 
   @include respond-to(phone) {
     height: 100px;

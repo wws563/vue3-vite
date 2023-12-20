@@ -29,6 +29,29 @@
   }
 }
 
+@mixin absolute-center(
+  $translateX: -50%,
+  $translateY: -50%,
+  $horizontal: 50%,
+  $vertical: 50%
+) {
+  position: absolute;
+  @if ($horizontal != false) {
+    left: $horizontal;
+  }
+  @if ($vertical != false) {
+    top: $vertical;
+  }
+
+  transform: translate($translateX, $translateY);
+  // @if ($align !=false) {
+  //   align-items: $align;
+  // }
+  // @if ($justify !=false) {
+  //   justify-content: $justify;
+  // }
+}
+
 @mixin font_size($size) {
   /*通过该函数设置字体大小，后期方便统一管理；*/
   @include font-dpr($size);
