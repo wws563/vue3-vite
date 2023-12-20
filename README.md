@@ -207,3 +207,12 @@ git config --global core.autocrlf false
 ```
 
 - 参考：https://blog.csdn.net/yiguoxiaohai/article/details/128119129
+
+# tempJson
+
+```json
+  "prettier": {
+    // "semi": true,
+    // "singleQuote": true
+  },
+```
