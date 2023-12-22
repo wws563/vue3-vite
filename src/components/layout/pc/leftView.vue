@@ -1,6 +1,6 @@
 <template>
   <el-menu default-active="0" class="el-menu-vertical-demo">
-    <template v-for="(item, index) in _routes" :key="index">
+    <!-- <template v-for="(item, index) in _routes" :key="index">
       <router-link :to="item.path" v-if="!item.children" :key="index">
         <el-menu-item :index="index + ''">
           <el-icon>
@@ -30,14 +30,14 @@
           </el-menu-item>
         </router-link>
       </el-sub-menu>
-    </template>
+    </template> -->
   </el-menu>
 </template>
 
 <script setup lang="ts">
-import routes from "@/router/routes.js";
+import routes from '@/router/routes.js';
 routes.shift();
-const _routes = ref(routes);
+// const _routes = ref(routes);
 </script>
 
 <style lang="scss">

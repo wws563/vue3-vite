@@ -9,16 +9,19 @@
 
     <div class="right">
       模式
-      <el-switch v-model="theme" @change="onThemeChange"></el-switch>
+      <!-- //TODO:解决@changeTS报错问题 -->
+      <!-- <el-switch v-model="theme" @change="onThemeChange"></el-switch> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const theme = ref(false);
-const onThemeChange = (e: boolean) => {
-  document.querySelector('html')!.setAttribute('theme', e ? 'dark' : 'light');
-};
+// const theme = ref(false);
+// const onThemeChange = (e: boolean) => {
+//   if (typeof e === 'boolean') {
+//     document.querySelector('html')!.setAttribute('theme', e ? 'dark' : 'light');
+//   }
+// };
 </script>
 
 <style lang="scss" scoped>

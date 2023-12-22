@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: "routerMiddle",
+  name: 'routerMiddle',
   data() {
     return {};
   },

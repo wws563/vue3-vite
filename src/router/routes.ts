@@ -1,5 +1,5 @@
 const routes = [
-  { path: '/', redirect: '/home' },
+  { path: '/', redirect: '/toy/lotterySpinner' },
   { path: '/home', name: '首页', component: () => import('@/view/index.vue') },
   // { path: '/projectSetting',
   //   name:'配置',
@@ -75,7 +75,7 @@ const routes = [
       {
         path: 'lotterySpinner',
         name: '圆盘抽奖',
-        component: () => import('@/view/toy/lotterySpinnerPage.vue'),
+        component: () => import('@/view/toy/lottorySpinnerPage.vue'),
       },
     ],
   },

@@ -18,7 +18,7 @@ console.log(name);
   height: 100vh;
   width: 100%;
 
-  @include respond-to(phone) {
+  @include respond-to(mobile) {
     height: 100px;
   }
 
