@@ -13,6 +13,7 @@
   "dependencies": {
     "animejs": "^3.2.2",
     "dayjs": "^1.11.10",
+    "element-plus": "^2.4.4",
     "path": "^0.12.7",
     "pinia": "^2.1.7",
     "sass": "^1.69.5",
