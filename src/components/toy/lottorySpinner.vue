@@ -20,24 +20,24 @@
 // 引入依赖
 import { ComponentInternalInstance } from 'vue';
 import anime from 'animejs/lib/anime.es.js';
+
+// EXP:ts分割的props定义与默认值
+interface Props {
+  target?: number;
+  giftList?: object[];
+}
 // 数据准备
-const props = defineProps({
-  target: {
-    type: Number,
-    default: 1,
-  },
-  giftList: {
-    type: Object,
-    default: () => {
-      // 默认值
-      let res = [];
-      for (let id = 1; id <= 11; id++) {
-        const gift = { id: id, text: `父礼物${id}` };
-        res.push(gift);
-      }
-      res.push({ id: 5, text: '这是大奖！' });
-      return res;
-    },
+const props = withDefaults(defineProps<Props>(), {
+  target: 1,
+  giftList: () => {
+    // 默认值
+    let res = [];
+    for (let id = 1; id <= 11; id++) {
+      const gift = { id: id, text: `父礼物${id}` };
+      res.push(gift);
+    }
+    res.push({ id: 5, text: '这是大奖！' });
+    return res;
   },
 });
 
