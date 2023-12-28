@@ -7,7 +7,7 @@
       （状态：{{ animating ? '进行中' : '已结束' }}）
     </div>
     <div class="spinner">
-      <canvas ref="pizzaCanvas" width="400" height="400"></canvas>
+      <canvas ref="pizzaCanvas" width="350" height="350"></canvas>
       <div class="arrow-container" @click="animeStart">
         <div class="arrow"></div>
         <div class="arrow-text">抽奖</div>
@@ -24,24 +24,30 @@ import anime from 'animejs/lib/anime.es.js';
 // EXP:ts分割的props定义与默认值
 interface Props {
   target?: number;
-  giftList?: object[];
+  giftList?: any[];
 }
+// TODO:这必须要定义？否则读取会报错
+interface giftItem {
+  id: string;
+  text: string;
+}
+
 // 数据准备
 const props = withDefaults(defineProps<Props>(), {
   target: 1,
-  giftList: () => {
+  giftList: (): giftItem[] => {
     // 默认值
     let res = [];
     for (let id = 1; id <= 11; id++) {
-      const gift = { id: id, text: `父礼物${id}` };
+      const gift = { id: 'id' + id, text: `父礼物${id}` };
       res.push(gift);
     }
-    res.push({ id: 5, text: '这是大奖！' });
+    res.push({ id: 'id-max', text: '这是大奖！' });
     return res;
   },
 });
 
-// 声明周期
+// 生命周期
 onMounted(() => {
   makePizza();
 });
@@ -94,9 +100,11 @@ const animeStart = () => {
     complete: function () {
       animating.value = false;
       proxy?.$message({
-        message: `恭喜你获得${
-          props.giftList.find((item: any) => item.id == 'id1').text
-        }`,
+        message: `恭喜你获得${// (props.giftList.find((item) => item.id == 'id1') as giftItem).text
+        // EXP: 定义类型时，需要判空
+        props.giftList?.find((item) => item.id == 'id1')?.text}`,
+        // 定义any是可以直接用
+        // props.giftList.find((item) => item.id == 'id1').text
         type: 'success',
       });
     },
@@ -157,7 +165,7 @@ const makePizza = () => {
     ctx.translate(textX, textY); // 平移坐标系到文字位置
     ctx.rotate(angle + Math.PI / 2); // 旋转坐标系，使文字方向指向圆心
 
-    const text: string = props.giftList[i].text; // 替换为你想要显示的文字
+    const text = props.giftList[i].text; // 替换为你想要显示的文字
     drawText(ctx, text); // 绘制文字
     ctx.restore(); // 恢复之前保存的状态，防止对后续绘制的影响
   }

@@ -8,7 +8,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: (typeof import('element-plus/es'))['ElButton'];
+    ElIcon: (typeof import('element-plus/es'))['ElIcon'];
     ElInput: (typeof import('element-plus/es'))['ElInput'];
+    ElMenu: (typeof import('element-plus/es'))['ElMenu'];
+    ElMenuItem: (typeof import('element-plus/es'))['ElMenuItem'];
+    ElSubMenu: (typeof import('element-plus/es'))['ElSubMenu'];
     ElTable: (typeof import('element-plus/es'))['ElTable'];
     ElTableColumn: (typeof import('element-plus/es'))['ElTableColumn'];
     FooterView: (typeof import('./src/components/layout/pc/footerView.vue'))['default'];

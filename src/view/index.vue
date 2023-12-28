@@ -2,10 +2,12 @@
   <div>
     <div class="left">wx专属</div>
     <!-- <button @click="jump">圆盘</button> -->
+    <LeftView></LeftView>
   </div>
 </template>
 
 <script setup lang="ts">
+import LeftView from '@/components/layout/pc/leftView.vue';
 // DEMO:使用pinia
 import { useStore } from '@/store/main.ts';
 const store = useStore();

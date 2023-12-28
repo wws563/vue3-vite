@@ -1,5 +1,6 @@
-const routes = [
-  { path: '/', redirect: '/toy/lotterySpinner' },
+import { RouteRecordRaw } from 'vue-router';
+const routes: Array<RouteRecordRaw> = [
+  { path: '/', redirect: '/home' },
   { path: '/home', name: '首页', component: () => import('@/view/index.vue') },
   // { path: '/projectSetting',
   //   name:'配置',
@@ -71,11 +72,17 @@ const routes = [
     path: '/toy',
     name: '玩具',
     component: () => import('@/components/layout/pc/routerMiddle.vue'),
+    meta: {
+      icon: 'IceCreamRound',
+    },
     children: [
       {
         path: 'lotterySpinner',
         name: '圆盘抽奖',
         component: () => import('@/view/toy/lottorySpinnerPage.vue'),
+        meta: {
+          icon: 'IceCreamRound',
+        },
       },
     ],
   },
