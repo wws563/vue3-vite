@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import router from './router/index.ts';
 import { createPinia } from 'pinia';
-import './style.css';
 import '@/styles/index.scss';
 // 日期
 import dayjs from 'dayjs';
@@ -10,6 +9,7 @@ import { ElMessage } from 'element-plus';
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 
 import 'element-plus/dist/index.css';
+import 'normalize.css/normalize.css';
 import App from './App.vue';
 
 const pinia = createPinia();

@@ -1,0 +1,30 @@
+@import './theme.scss';
+
+html {
+  // font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Arial','sans-serif';
+  background-color: var(--bg-color-primary);
+}
+
+p,
+div,
+button,
+input,
+textarea {
+  color: var(--primary-color);
+}
+p {
+  margin: 0;
+}
+.title {
+  color: var(--title-color);
+}
+.sub-title {
+  color: var(--sub-title-color);
+}
+
+// highlightjs字体
+pre > code {
+  font-family: 'Sans Mono', 'Consolas', 'Courier', monospace;
+  tab-size: 15px;
+}
+// element reset
