@@ -3,3 +3,4 @@ output
 node_modules
 lib
 .eslintrc.cjs
+.components.d.ts
