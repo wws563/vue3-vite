@@ -16,13 +16,13 @@ declare module 'vue' {
     ElSwitch: (typeof import('element-plus/es'))['ElSwitch'];
     ElTable: (typeof import('element-plus/es'))['ElTable'];
     ElTableColumn: (typeof import('element-plus/es'))['ElTableColumn'];
-    FooterView: (typeof import('./src/components/layout/pc/footerView.vue'))['default'];
-    HeaderView: (typeof import('./src/components/layout/pc/headerView.vue'))['default'];
-    LeftView: (typeof import('./src/components/layout/pc/leftView.vue'))['default'];
+    FooterView: (typeof import('./src/components/layout/FooterView.vue'))['default'];
+    HeaderView: (typeof import('./src/components/layout/HeaderView.vue'))['default'];
+    LeftView: (typeof import('./src/components/layout/LeftView.vue'))['default'];
     LottoryPicker: (typeof import('./src/components/toy/lottoryPicker.vue'))['default'];
     LottorySpinner: (typeof import('./src/components/toy/lottorySpinner.vue'))['default'];
     RouterLink: (typeof import('vue-router'))['RouterLink'];
-    RouterMiddle: (typeof import('./src/components/layout/pc/routerMiddle.vue'))['default'];
+    RouterMiddle: (typeof import('./src/components/layout/RouterMiddle.vue'))['default'];
     RouterView: (typeof import('vue-router'))['RouterView'];
   }
 }

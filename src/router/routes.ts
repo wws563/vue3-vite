@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/home', name: '首页', component: () => import('@/view/index.vue') },
   // { path: '/projectSetting',
   //   name:'配置',
-  //   component: ()=>import('@/components/layout/routerMiddle.vue'),
+  //   component: ()=>import('@/components/layout/RouterMiddle.vue'),
   //   children:[
   //     {
   //       path: 'build',
@@ -26,7 +26,7 @@ const routes: Array<RouteRecordRaw> = [
   // {
   //   path: "/plugin",
   //   name: "插件",
-  //   component: () => import("@/components/layout/routerMiddle.vue"),
+  //   component: () => import("@/components/layout/RouterMiddle.vue"),
   //   children: [
   //     {
   //       path: "codePan",
@@ -43,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
   // {
   //   path: "/vue",
   //   name: "Vue3",
-  //   component: () => import("@/components/layout/routerMiddle.vue"),
+  //   component: () => import("@/components/layout/RouterMiddle.vue"),
   //   children: [
   //     {
   //       path: "setup",
@@ -60,7 +60,7 @@ const routes: Array<RouteRecordRaw> = [
   // {
   //   path: "/demo",
   //   name: "Demos",
-  //   component: () => import("@/components/layout/routerMiddle.vue"),
+  //   component: () => import("@/components/layout/RouterMiddle.vue"),
   //   children: [
   //     {
   //       path: "routeRobot",
@@ -71,7 +71,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/toy',
     name: '玩具',
-    component: () => import('@/components/layout/pc/routerMiddle.vue'),
+    component: () => import('@/components/layout/RouterMiddle.vue'),
     meta: {
       icon: 'IceCreamRound',
     },
