@@ -208,9 +208,13 @@ git config --global core.autocrlf false
 
 - 参考：https://blog.csdn.net/yiguoxiaohai/article/details/128119129
 
+2. index.html更新后eslint报错
+   > 安装eslint-plugin-html，然后在 .eslintrc 配置项 "plugins" 值的数组中增加 "html"
+
 # tempJson
 
 ```json
+
   "prettier": {
     // "semi": true,
     // "singleQuote": true
