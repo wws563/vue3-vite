@@ -2,6 +2,24 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   { path: '/', redirect: '/home' },
   { path: '/home', name: '首页', component: () => import('@/view/index.vue') },
+  {
+    path: '/toy',
+    name: '玩具',
+    component: () => import('@/components/layout/RouterMiddle.vue'),
+    meta: {
+      icon: 'IceCreamRound',
+    },
+    children: [
+      {
+        path: 'lotterySpinner',
+        name: '圆盘抽奖',
+        component: () => import('@/view/toy/lottorySpinnerPage.vue'),
+        meta: {
+          icon: 'IceCreamRound',
+        },
+      },
+    ],
+  },
   // { path: '/projectSetting',
   //   name:'配置',
   //   component: ()=>import('@/components/layout/RouterMiddle.vue'),
@@ -68,24 +86,7 @@ const routes: Array<RouteRecordRaw> = [
   //       component: () => import("@/view/demo/routeRobot.vue"),
   //     },
   //   ],
-  {
-    path: '/toy',
-    name: '玩具',
-    component: () => import('@/components/layout/RouterMiddle.vue'),
-    meta: {
-      icon: 'IceCreamRound',
-    },
-    children: [
-      {
-        path: 'lotterySpinner',
-        name: '圆盘抽奖',
-        component: () => import('@/view/toy/lottorySpinnerPage.vue'),
-        meta: {
-          icon: 'IceCreamRound',
-        },
-      },
-    ],
-  },
+
   // },
 ];
 

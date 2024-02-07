@@ -21,7 +21,10 @@ declare module 'vue' {
     LeftView: (typeof import('./src/components/layout/LeftView.vue'))['default'];
     LottoryPicker: (typeof import('./src/components/toy/lottoryPicker.vue'))['default'];
     LottorySpinner: (typeof import('./src/components/toy/lottorySpinner.vue'))['default'];
+    Media: (typeof import('./src/components/media/index.vue'))['default'];
+    MediaCheck: (typeof import('./src/components/media/mediaCheck.vue'))['default'];
     RouterLink: (typeof import('vue-router'))['RouterLink'];
+    RouterMenu: (typeof import('./src/components/layout/RouterMenu.vue'))['default'];
     RouterMiddle: (typeof import('./src/components/layout/RouterMiddle.vue'))['default'];
     RouterView: (typeof import('vue-router'))['RouterView'];
   }

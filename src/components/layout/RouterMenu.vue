@@ -1,7 +1,11 @@
 <template>
   <el-menu default-active="0" class="el-menu-vertical-demo">
-    <template v-for="(item, index) in _routes" :key="index">
-      <router-link :to="item.path" v-if="!item.children" :key="index">
+    <template v-for="(item, index) in compRoutes" :key="index">
+      <router-link
+        v-if="!item.children && item.name"
+        :to="item.path"
+        :key="index"
+      >
         <el-menu-item :index="index + ''">
           <el-icon>
             <component :is="item.meta?.icon"></component>
@@ -35,9 +39,12 @@
 </template>
 
 <script setup lang="ts">
-import routes from '@/router/routes.js';
-routes.shift();
+import routes from '@/router/routes.ts';
+// routes.shift();
 const _routes = ref(routes);
+const compRoutes = computed(() => {
+  return _routes.value.filter((route) => route.name);
+});
 </script>
 
 <style lang="scss">

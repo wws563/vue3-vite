@@ -4,15 +4,18 @@
       <div class="logo">
         <img src="@/assets/images/logo.png" alt="" />
       </div>
-      <span class="title mobile">E1son's</span>
-      <span class="title pc">E1son's Home</span>
+      <div class="title">E1son's <span class="pc">Home</span></div>
+      <!-- <span class="title pc">E1son's Home</span> -->
     </div>
 
     <div class="right">
-      模式
-      <!-- 解决@change TS报错问题 -->
-      <!-- 文档中TS指定类型为(val: boolean | string | number) => void -->
-      <el-switch v-model="theme" @change="onThemeChange"></el-switch>
+      <div class="pc">
+        模式
+        <!-- EXP:解决@change TS报错问题 -->
+        <!-- 文档中TS指定类型为(val: boolean | string | number) => void -->
+        <el-switch v-model="theme" @change="onThemeChange"></el-switch>
+      </div>
+      <div class="mobile">mobile</div>
     </div>
   </div>
 </template>
@@ -38,23 +41,26 @@ const onThemeChange = (e: boolean | string | number) => {
   .left {
     @include flex-center();
   }
-  .right {
-    margin-right: 20px;
-  }
+
   .title {
     font-size: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    &.pc {
-      // color: yellow;
-
-      @include respond-to(mobile) {
+    @include respond-to(mobile) {
+      .pc {
         display: none;
       }
     }
-    &.mobile {
-      // color: red;
-      @include respond-to(pc) {
+  }
+  .right {
+    margin-right: 20px;
+    @include respond-to(mobile) {
+      .pc {
+        display: none;
+      }
+    }
+    @include respond-to(pc) {
+      .mobile {
         display: none;
       }
     }

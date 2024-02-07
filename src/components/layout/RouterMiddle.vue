@@ -1,15 +1,9 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'routerMiddle',
-  data() {
-    return {};
-  },
-  methods: {},
-};
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped></style>
