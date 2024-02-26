@@ -6,7 +6,9 @@
     <div class="left">wx专属</div>
     <!-- <button @click="jump">圆盘</button> -->
     <RouterMenu></RouterMenu>
-    <div></div>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -15,6 +17,11 @@ import RouterMenu from '@/components/layout/RouterMenu.vue';
 import HeaderView from '@/components/layout/HeaderView.vue';
 // DEMO:使用pinia
 import { useStore } from '@/store/main.ts';
+
+defineOptions({
+  name: 'indexPage',
+});
+
 const store = useStore();
 let { name } = store;
 console.log(name);

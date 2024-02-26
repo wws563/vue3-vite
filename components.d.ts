@@ -7,25 +7,25 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: (typeof import('element-plus/es'))['ElButton'];
-    ElIcon: (typeof import('element-plus/es'))['ElIcon'];
-    ElInput: (typeof import('element-plus/es'))['ElInput'];
-    ElMenu: (typeof import('element-plus/es'))['ElMenu'];
-    ElMenuItem: (typeof import('element-plus/es'))['ElMenuItem'];
-    ElSubMenu: (typeof import('element-plus/es'))['ElSubMenu'];
-    ElSwitch: (typeof import('element-plus/es'))['ElSwitch'];
-    ElTable: (typeof import('element-plus/es'))['ElTable'];
-    ElTableColumn: (typeof import('element-plus/es'))['ElTableColumn'];
-    FooterView: (typeof import('./src/components/layout/FooterView.vue'))['default'];
-    HeaderView: (typeof import('./src/components/layout/HeaderView.vue'))['default'];
-    LeftView: (typeof import('./src/components/layout/LeftView.vue'))['default'];
-    LottoryPicker: (typeof import('./src/components/toy/lottoryPicker.vue'))['default'];
-    LottorySpinner: (typeof import('./src/components/toy/lottorySpinner.vue'))['default'];
-    Media: (typeof import('./src/components/media/index.vue'))['default'];
-    MediaCheck: (typeof import('./src/components/media/mediaCheck.vue'))['default'];
-    RouterLink: (typeof import('vue-router'))['RouterLink'];
-    RouterMenu: (typeof import('./src/components/layout/RouterMenu.vue'))['default'];
-    RouterMiddle: (typeof import('./src/components/layout/RouterMiddle.vue'))['default'];
-    RouterView: (typeof import('vue-router'))['RouterView'];
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElInput: typeof import('element-plus/es')['ElInput']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    FooterView: typeof import('./src/components/layout/FooterView.vue')['default']
+    HeaderView: typeof import('./src/components/layout/HeaderView.vue')['default']
+    LeftView: (typeof import('./src/components/layout/LeftView.vue'))['default']
+    LottoryPicker: typeof import('./src/components/toy/lottoryPicker.vue')['default']
+    LottorySpinner: typeof import('./src/components/toy/lottorySpinner.vue')['default']
+    Media: (typeof import('./src/components/media/index.vue'))['default']
+    MediaCheck: (typeof import('./src/components/media/mediaCheck.vue'))['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterMenu: typeof import('./src/components/layout/RouterMenu.vue')['default']
+    RouterMiddle: typeof import('./src/components/layout/RouterMiddle.vue')['default']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

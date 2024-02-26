@@ -1,7 +1,16 @@
 import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   { path: '/', redirect: '/home' },
-  { path: '/home', name: '首页', component: () => import('@/view/index.vue') },
+  {
+    path: '/home',
+    name: '首页',
+    component: () => import('@/view/homepage.vue'),
+  },
+  {
+    path: '/resume',
+    name: '简历',
+    component: () => import('@/view/resume.vue'),
+  },
   {
     path: '/toy',
     name: '玩具',
