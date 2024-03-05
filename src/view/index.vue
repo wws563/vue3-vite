@@ -3,9 +3,9 @@
     <div class="header">
       <HeaderView></HeaderView>
     </div>
-    <div class="left">wx专属</div>
-    <!-- <button @click="jump">圆盘</button> -->
-    <RouterMenu></RouterMenu>
+    <div class="left">
+      <RouterMenu></RouterMenu>
+    </div>
     <div>
       <router-view></router-view>
     </div>
@@ -34,7 +34,7 @@ console.log(name);
 }
 
 .left {
-  @include respond-to(pc) {
+  @include respond-to(mobile) {
     display: none;
   }
 }

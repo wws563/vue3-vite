@@ -5,6 +5,7 @@
         v-if="!item.children && item.name"
         :to="item.path"
         :key="index"
+        @click="linkClick(item)"
       >
         <el-menu-item :index="index + ''">
           <el-icon>
@@ -25,6 +26,7 @@
           :to="item.path + '/' + sub.path"
           v-for="(sub, subIndex) in item.children"
           :key="subIndex"
+          @click="linkClick(item)"
         >
           <el-menu-item :index="index + '-' + subIndex">
             <el-icon>
@@ -40,11 +42,21 @@
 
 <script setup lang="ts">
 import routes from '@/router/routes.ts';
+
+// EXP: emit注册与使用
+const emit = defineEmits(['linkClick']);
+
 // routes.shift();
 const _routes = ref(routes);
 const compRoutes = computed(() => {
   return _routes.value.filter((route) => route.name);
 });
+
+// 触发路由点击事件，用于移动端关闭弹层
+const linkClick = (item: any) => {
+  emit('linkClick', item);
+  console.log(item);
+};
 </script>
 
 <style lang="scss">

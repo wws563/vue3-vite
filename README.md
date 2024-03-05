@@ -33,6 +33,10 @@ npm install vue-router -d--save
 
 配置路由，省略1000字
 
+3. ui框架
+   - pc、element-plus
+   - 移动端、vant3
+
 # 效率提高
 
 1. (安装unplugin-auto-import自动导入vue常用功能)[https://blog.csdn.net/hbiao68/article/details/131213399]
