@@ -7,28 +7,36 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/view/homepage.vue'),
   },
   {
+    path: '/doc',
+    name: '文档',
+    component: () => import('@/view/doc.vue'),
+    children: [
+      {
+        path: 'toy',
+        name: '玩具',
+        component: () => import('@/components/layout/RouterMiddle.vue'),
+        meta: {
+          icon: 'IceCreamRound',
+        },
+        children: [
+          {
+            path: 'lotterySpinner',
+            name: '圆盘抽奖',
+            component: () => import('@/view/toy/lottorySpinnerPage.vue'),
+            meta: {
+              icon: 'IceCreamRound',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
     path: '/resume',
     name: '简历',
     component: () => import('@/view/resume.vue'),
   },
-  {
-    path: '/toy',
-    name: '玩具',
-    component: () => import('@/components/layout/RouterMiddle.vue'),
-    meta: {
-      icon: 'IceCreamRound',
-    },
-    children: [
-      {
-        path: 'lotterySpinner',
-        name: '圆盘抽奖',
-        component: () => import('@/view/toy/lottorySpinnerPage.vue'),
-        meta: {
-          icon: 'IceCreamRound',
-        },
-      },
-    ],
-  },
+
   // { path: '/projectSetting',
   //   name:'配置',
   //   component: ()=>import('@/components/layout/RouterMiddle.vue'),

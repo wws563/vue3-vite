@@ -1,14 +1,14 @@
 <template>
   <div class="header">
     <div class="left pc">
-      <div class="logo">
+      <div class="logo" @click="backHome">
         <img src="@/assets/images/logo.png" alt="" />
       </div>
       <div class="title">E1son's Home</div>
       <!-- <span class="title pc">E1son's Home</span> -->
     </div>
     <div class="left mobile">
-      <div class="logo">
+      <div class="logo" @click="backHome">
         <img src="@/assets/images/logo.png" alt="" />
       </div>
       <div class="title">E1son's</div>
@@ -30,7 +30,7 @@
         position="right"
         :style="{ width: '80%', height: '100%' }"
       >
-        <RouterMenu @link-click="togglePopup"></RouterMenu>
+        <RouterMenu @link-click="togglePopup" prefix="doc"></RouterMenu>
       </van-popup>
     </div>
   </div>
@@ -38,12 +38,26 @@
 
 <script setup lang="ts">
 import RouterMenu from '@/components/layout/RouterMenu.vue';
+
+// 返回首页
+const router = useRouter();
+const backHome = () => {
+  router.push({ path: '/home' });
+};
+
 const theme = ref(false);
 const onThemeChange = (e: boolean | string | number) => {
   if (typeof e === 'boolean') {
     document.querySelector('html')!.setAttribute('theme', e ? 'dark' : 'light');
   }
 };
+
+onMounted(() => {
+  theme.value =
+    document.querySelector('html')!.getAttribute('theme') === 'dark'
+      ? true
+      : false;
+});
 
 const rightPopVisible = ref(false);
 const togglePopup = () => {
@@ -89,6 +103,7 @@ defineExpose({
         display: none;
       }
       .logo {
+        cursor: pointer;
         height: 80px;
         width: 80px;
       }

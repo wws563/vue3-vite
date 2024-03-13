@@ -4,7 +4,7 @@
       <HeaderView></HeaderView>
     </div>
     <div class="left">
-      <RouterMenu></RouterMenu>
+      <RouterMenu prefix="doc"></RouterMenu>
     </div>
     <div>
       <router-view></router-view>

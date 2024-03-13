@@ -3,7 +3,7 @@
     <template v-for="(item, index) in compRoutes" :key="index">
       <router-link
         v-if="!item.children && item.name"
-        :to="item.path"
+        :to="(props.prefix ? '/' + props.prefix : '') + item.path"
         :key="index"
         @click="linkClick(item)"
       >
@@ -23,7 +23,13 @@
           <span>{{ item.name }}</span>
         </template>
         <router-link
-          :to="item.path + '/' + sub.path"
+          :to="
+            (props.prefix ? '/' + props.prefix : '') +
+            '/' +
+            item.path +
+            '/' +
+            sub.path
+          "
           v-for="(sub, subIndex) in item.children"
           :key="subIndex"
           @click="linkClick(item)"
@@ -46,10 +52,18 @@ import routes from '@/router/routes.ts';
 // EXP: emit注册与使用
 const emit = defineEmits(['linkClick']);
 
+const props = defineProps<{ prefix?: string }>();
+// const props = defineProps({
+//   prefix: {
+//     type: String,
+//     default: '',
+//   },
+// });
+
 // routes.shift();
 const _routes = ref(routes);
 const compRoutes = computed(() => {
-  return _routes.value.filter((route) => route.name);
+  return _routes.value.filter((route) => route.path == '/doc')[0].children;
 });
 
 // 触发路由点击事件，用于移动端关闭弹层

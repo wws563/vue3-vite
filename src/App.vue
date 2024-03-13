@@ -3,13 +3,11 @@
 
 <template>
   <div>
-    <indexPage></indexPage>
+    <router-view></router-view>
   </div>
 </template>
 
-<script lang="ts" setup>
-import indexPage from '@/view/index.vue';
-</script>
+<script lang="ts" setup></script>
 <style scoped lang="scss">
 .logo {
   height: 6em;
