@@ -36,6 +36,10 @@ const routes: Array<RouteRecordRaw> = [
     name: '简历',
     component: () => import('@/view/resume.vue'),
   },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/view/redirect/404.vue'),
+  },
 
   // { path: '/projectSetting',
   //   name:'配置',

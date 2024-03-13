@@ -3,11 +3,13 @@
     <div class="header">
       <HeaderView></HeaderView>
     </div>
-    <div class="left">
-      <RouterMenu prefix="doc"></RouterMenu>
-    </div>
-    <div>
-      <router-view></router-view>
+    <div class="main">
+      <div class="left">
+        <RouterMenu prefix="doc"></RouterMenu>
+      </div>
+      <div class="route">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -31,11 +33,32 @@ console.log(name);
 .header {
   width: 100%;
   background-color: rgb(91, 67, 119);
+  position: fixed;
+  top: 0;
 }
-
-.left {
+.main {
+  margin-top: 80px;
+  height: calc(100vh - 80px);
   @include respond-to(mobile) {
-    display: none;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+  }
+  @include flex-center(flex-start, flex-start);
+  overflow: hidden;
+  .left {
+    height: 100%;
+    padding: 5px;
+    flex-basis: 150px;
+    @include respond-to(mobile) {
+      display: none;
+    }
+  }
+  .route {
+    padding: 10px;
+    max-height: 100%;
+    overflow: auto;
+    flex: 1;
+    background-color: #fff;
   }
 }
 </style>

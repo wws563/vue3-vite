@@ -78,6 +78,7 @@ const target = ref<number>(4);
 <style lang="scss">
 .content {
   display: flex;
+  height: 3000px;
   @include respond-to(mobile) {
     flex-direction: column;
   }

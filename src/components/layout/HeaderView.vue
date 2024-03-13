@@ -22,7 +22,7 @@
         <!-- 文档中TS指定类型为(val: boolean | string | number) => void -->
         <el-switch v-model="theme" @change="onThemeChange"></el-switch>
       </div>
-      <div class="mobile" @click="togglePopup">
+      <div v-if="props.showMenu" class="mobile" @click="togglePopup">
         <van-icon class="wap-navi" name="wap-nav" size="30" />
       </div>
       <van-popup
@@ -39,6 +39,9 @@
 <script setup lang="ts">
 import RouterMenu from '@/components/layout/RouterMenu.vue';
 
+const props = defineProps<{
+  showMenu?: boolean;
+}>();
 // 返回首页
 const router = useRouter();
 const backHome = () => {

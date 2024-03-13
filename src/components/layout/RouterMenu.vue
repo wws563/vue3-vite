@@ -1,6 +1,7 @@
 <template>
   <el-menu default-active="0" class="el-menu-vertical-demo">
     <template v-for="(item, index) in compRoutes" :key="index">
+      <!-- EXP:to不加‘/’跳转相对地址，会增加路由，加了就是绝对路由 -->
       <router-link
         v-if="!item.children && item.name"
         :to="(props.prefix ? '/' + props.prefix : '') + item.path"
