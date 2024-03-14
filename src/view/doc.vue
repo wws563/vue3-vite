@@ -5,7 +5,7 @@
     </div>
     <div class="main">
       <div class="left">
-        <RouterMenu prefix="doc"></RouterMenu>
+        <RouterMenu></RouterMenu>
       </div>
       <div class="route">
         <router-view></router-view>

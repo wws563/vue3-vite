@@ -10,9 +10,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/doc',
     name: '文档',
     component: () => import('@/view/doc.vue'),
+    redirect: '/doc/toy/lotterySpinner',
     children: [
       {
-        path: 'toy',
+        path: '/doc/toy',
         name: '玩具',
         component: () => import('@/components/layout/RouterMiddle.vue'),
         meta: {
@@ -20,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         },
         children: [
           {
-            path: 'lotterySpinner',
+            path: '/doc/toy/lotterySpinner',
             name: '圆盘抽奖',
             component: () => import('@/view/toy/lottorySpinnerPage.vue'),
             meta: {
