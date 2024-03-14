@@ -7,6 +7,7 @@ import {
   VantResolver,
   ElementPlusResolver,
 } from 'unplugin-vue-components/resolvers';
+import copyFilesPlugin from './copy-files-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,6 +26,7 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver(), VantResolver()],
     }),
+    copyFilesPlugin(),
   ],
   resolve: {
     alias: {

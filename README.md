@@ -47,7 +47,8 @@ npm install vue-router -d--save
 const theme = ref(false);
 ```
 
-2.
+2.build自动发布
+通过vite增加copyFilesPlugin，实现build自动成果物复制到服务器。实现自动发布功能。
 
 # 代码质量
 
