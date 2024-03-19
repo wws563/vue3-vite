@@ -1,37 +1,39 @@
 <template>
-  <div class="header">
-    <div class="left pc">
-      <div class="logo" @click="backHome">
-        <img src="@/assets/images/logo.png" alt="" />
+  <div class="header-box">
+    <div class="header">
+      <div class="left pc">
+        <div class="logo" @click="backHome">
+          <img src="@/assets/images/logo.png" alt="" />
+        </div>
+        <div class="title">E1son's Home</div>
+        <!-- <span class="title pc">E1son's Home</span> -->
       </div>
-      <div class="title">E1son's Home</div>
-      <!-- <span class="title pc">E1son's Home</span> -->
-    </div>
-    <div class="left mobile">
-      <div class="logo" @click="backHome">
-        <img src="@/assets/images/logo.png" alt="" />
+      <div class="left mobile">
+        <div class="logo" @click="backHome">
+          <img src="@/assets/images/logo.png" alt="" />
+        </div>
+        <div class="title">E1son's</div>
+        <!-- <span class="title pc">E1son's Home</span> -->
       </div>
-      <div class="title">E1son's</div>
-      <!-- <span class="title pc">E1son's Home</span> -->
-    </div>
 
-    <div class="right">
-      <div class="pc">
-        模式
-        <!-- EXP:解决@change TS报错问题 -->
-        <!-- 文档中TS指定类型为(val: boolean | string | number) => void -->
-        <el-switch v-model="theme" @change="onThemeChange"></el-switch>
+      <div class="right">
+        <div class="pc">
+          模式
+          <!-- EXP:解决@change TS报错问题 -->
+          <!-- 文档中TS指定类型为(val: boolean | string | number) => void -->
+          <el-switch v-model="theme" @change="onThemeChange"></el-switch>
+        </div>
+        <div v-if="props.showMenu" class="mobile" @click="togglePopup">
+          <van-icon class="wap-navi" name="wap-nav" size="30" />
+        </div>
+        <van-popup
+          v-model:show="rightPopVisible"
+          position="right"
+          :style="{ width: '80%', height: '100%' }"
+        >
+          <RouterMenu @link-click="togglePopup" prefix="doc"></RouterMenu>
+        </van-popup>
       </div>
-      <div v-if="props.showMenu" class="mobile" @click="togglePopup">
-        <van-icon class="wap-navi" name="wap-nav" size="30" />
-      </div>
-      <van-popup
-        v-model:show="rightPopVisible"
-        position="right"
-        :style="{ width: '80%', height: '100%' }"
-      >
-        <RouterMenu @link-click="togglePopup" prefix="doc"></RouterMenu>
-      </van-popup>
     </div>
   </div>
 </template>
@@ -73,7 +75,15 @@ defineExpose({
 </script>
 
 <style lang="scss" scoped>
+.header-box {
+  position: relative;
+  height: 5rem;
+}
 .header {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  height: 5rem;
   background-image: linear-gradient(#f1e3ce, #e6d7c5);
   display: flex;
   justify-content: space-between;

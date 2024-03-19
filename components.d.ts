@@ -26,6 +26,8 @@ declare module 'vue' {
     RouterMiddle: typeof import('./src/components/layout/RouterMiddle.vue')['default']
     RouterView: typeof import('vue-router')['RouterView']
     VanButton: typeof import('vant/es')['Button']
+    VanGrid: typeof import('vant/es')['Grid']
+    VanGridItem: typeof import('vant/es')['GridItem']
     VanIcon: typeof import('vant/es')['Icon']
     VanPopup: typeof import('vant/es')['Popup']
   }

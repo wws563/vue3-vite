@@ -11,14 +11,18 @@
     "lint:lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@types/swiper": "^6.0.0",
+    "@vueuse/core": "^10.9.0",
     "animejs": "^3.2.2",
     "dayjs": "^1.11.10",
     "element-plus": "^2.4.4",
     "highlight.js": "^11.9.0",
+    "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
     "pinia": "^2.1.7",
     "sass": "^1.69.5",
+    "swiper": "^11.0.7",
     "unplugin-auto-import": "^0.17.2",
     "vant": "^4.8.5",
     "vue": "^3.3.8",

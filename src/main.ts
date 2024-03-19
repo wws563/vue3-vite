@@ -12,13 +12,21 @@ import 'element-plus/dist/index.css';
 import 'normalize.css/normalize.css';
 import App from './App.vue';
 
-const pinia = createPinia();
+// EXP:使用resize监控屏幕，优化为usevue的useBreakpoints
+// import { screenWidthMixin } from '@/utils/mixin/listenScreen'; // 注意文件后缀
 
+const pinia = createPinia();
 const app = createApp(App);
+
 // 图标
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
+
+// 全局监听屏幕宽度
+app.config.globalProperties.$screenWidth = window.innerWidth;
+// app.mixin(screenWidthMixin);
+
 app.config.globalProperties.$dayjs = dayjs;
 app.config.globalProperties.$message = ElMessage;
 app.use(router).use(pinia).use(ElementPlus).mount('#app');
