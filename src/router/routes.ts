@@ -28,6 +28,14 @@ const routes: Array<RouteRecordRaw> = [
               icon: 'IceCreamRound',
             },
           },
+          {
+            path: '/doc/toy/lyric',
+            name: '歌词轮播',
+            component: () => import('@/view/toy/lyric.vue'),
+            meta: {
+              icon: 'Headset',
+            },
+          },
         ],
       },
     ],
